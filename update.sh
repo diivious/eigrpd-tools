@@ -3,6 +3,10 @@
 # Donnie V. Savage
 # 10 Nov, 2021
 #
+if [ ! -d ~/devel ]; then
+    echo "Setup assumes development is in ~/devel"
+    exit
+fi
 
 cd ~/devel
 if [ -d "$1" ]; then

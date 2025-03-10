@@ -17,7 +17,10 @@ if [ $IS_SUDO = "0" ]; then
     exit
 fi
 
-
+if [ ! -d ~/devel ]; then
+    echo "Setup assumes development is in ~/devel"
+    exit
+fi
 
 if [ ! -e etc.services ]; then
     echo "Setup must be run from the tools directory"

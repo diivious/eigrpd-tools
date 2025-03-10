@@ -4,9 +4,13 @@
 # 10 Nov, 2021
 #
 
-cd ~/devel/frr
+if [ ! -d ~/devel ]; then
+    echo "Setup assumes development is in ~/devel"
+    exit
+fi
 
 # If ever this grows, then do better commandline arg processing
+cd ~/devel/frr
 
 if [ "x$1" = "x-config" ]; then
     shift
