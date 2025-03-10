@@ -123,17 +123,17 @@ sudo install -m 755 -o frr -g frr -d /var/opt/frr
 echo Create EIGRPD CONFIG
 sudo chmod 777 /etc/frr/vtysh.conf
 sudo echo 'service integrated-vtysh-config' > /etc/frr/vtysh.conf
-sudo cp ~/devel/frr-tools/etc.frr.frr.conf /etc/frr/frr.conf
+sudo cp ~/devel/eigrpd-tools/etc.frr.frr.conf /etc/frr/frr.conf
 sudo chmod 640 /etc/frr/vtysh.conf
 
 echo Cheching /etc/services
 if [ "`grep 2613 /etc/services`" = "" ]; then
     echo Patching content of etc.services to /etc/services
-    sudo patch /etc/services < ~/devel/frr-tools/etc.services
+    sudo patch /etc/services < ~/devel/eigrpd-tools/etc.services
 fi
 
 echo Config FRR Service
-sudo cp ~/devel/frr-tools/etc.frr.daemons /etc/frr/daemons
+sudo cp ~/devel/eigrpd-tools/etc.frr.daemons /etc/frr/daemons
 sudo cp ~/devel/frr/tools/frr.service /etc/systemd/system/frr.service
 
 echo daemon-reload
